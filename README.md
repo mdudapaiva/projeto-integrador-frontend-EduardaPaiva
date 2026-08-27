@@ -70,3 +70,23 @@ O site também apresenta um vídeo relacionado a **arranjos florais**, incorpora
 Projeto desenvolvido para fins educacionais, com o objetivo de praticar conhecimentos básicos de **HTML e CSS** no desenvolvimento de uma página web.
 
 **Jardim Encantado 🌷 — Flores que transformam momentos em memórias.**
+
+
+
+
+
+
+
+
+
+
+
+ Avaliação do código
+ Pontos positivos
+- **Estrutura semântica correta:** uso de `<header>`, `<nav>`, `<section>` e `<footer>` em vez de `<div>` genéricas.
+  
+Pontos para melhorar
+
+- **Adicionar a tag `<main>`:** falta um `<main>` envolvendo o conteúdo principal da página, entre o `<header>` e o `<footer>`. Isso melhora a estrutura semântica e ajuda tecnologias assistivas a identificar o conteúdo central da página.
+
+- **Organizar a navegação com uma lista:** atualmente, o `<nav>` possui links soltos. O ideal semanticamente é utilizar `<ul>` e `<li>` para estruturar os links de navegação.
