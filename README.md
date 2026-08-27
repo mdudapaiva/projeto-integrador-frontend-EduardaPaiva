@@ -69,4 +69,21 @@ O site também apresenta um vídeo relacionado a **arranjos florais**, incorpora
 
 Projeto desenvolvido para fins educacionais, com o objetivo de praticar conhecimentos básicos de **HTML e CSS** no desenvolvimento de uma página web.
 
-**Jardim Encantado 🌷 — Flores que transformam momentos em memórias.**
+
+
+
+
+
+
+
+## 🔧 Avaliação atividade Código HTML
+
+1. **Falta a tag `<main>`** envolvendo o conteúdo principal (tudo entre `<header>` e `<footer>`). Isso ajuda tecnologias assistivas a identificar o conteúdo central da página.
+
+2. **Navegação sem lista**: o `<nav>` tem links soltos. O ideal semanticamente é usar `<ul><li>` dentro do nav para estruturar os itens corretamente.
+
+3. **Preço como texto solto**: `<strong>R$ 15,00</strong>` funciona visualmente, mas não tem significado semântico de "preço". Poderia usar `<p class="preco">` ou um `<data value="15.00">`.
+
+- Pontos positivos: o código usa estrutura semântica correta, com header, nav, section e footer no lugar de divs genéricas, exatamente como se espera em HTML semântico. As seções têm IDs (flores, sobre, video, contato) que combinam com os links de âncora do menu, garantindo uma navegação interna funcional.
+
+*🌷 — Flores que transformam momentos em memórias.**
