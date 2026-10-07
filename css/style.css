@@ -1,0 +1,389 @@
+/* ==========================================================
+   STYLE.CSS - Jardim Encantado
+   Aula 06: seletores, especificidade, box model, rem, links
+   Aula 07: Flexbox, Grid, pseudo-classes estruturais, transform
+   ========================================================== */
+
+
+/* ---------- VARIÁVEIS (Aula 06, passo 2) ---------- */
+:root {
+    --cor-primaria: #d96c91;
+    --cor-escura: #b83f68;
+    --cor-fundo: #fff8fb;
+    --cor-suave: #f8dce6;
+    --cor-preco: #388e3c;
+    --cor-texto: #333;
+    --cor-visitado: #7b4b94;
+    --espaco: 1.25rem;
+    --raio: 15px;
+    --sombra: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --sombra-forte: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ---------- BASE ----------
+   Todos os font-size do projeto usam rem (nunca px):
+   rem é relativo ao tamanho de fonte do navegador, então respeita a
+   preferência de acessibilidade do usuário e não "acumula" como o em
+   quando elementos estão aninhados. */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+
+/* ---------- LINKS: ordem LoVe/HAte (Aula 06, passo 7) ----------
+   link -> visited -> hover -> active.
+   Se a ordem mudar, uma regra anula a outra (mesma especificidade). */
+a:link {
+    color: var(--cor-escura);
+}
+
+a:visited {
+    color: var(--cor-visitado);
+}
+
+a:hover {
+    color: var(--cor-primaria);
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--cor-texto);
+}
+
+
+/* ---------- CABEÇALHO ---------- */
+header {
+    background-color: var(--cor-primaria);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* Seletor de ID (Aula 06, passo 4): o título principal é único na página */
+#titulo-principal {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.125rem;
+}
+
+
+/* ---------- MENU COM FLEXBOX (Aula 07, passo 1) ---------- */
+nav {
+    display: flex;
+    flex-wrap: wrap;            /* quebra linha em telas pequenas */
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 20px;
+}
+
+/* Combinador de FILHO DIRETO (>): os itens flex são apenas os filhos
+   diretos do nav, então ">" deixa claro quem são os flex items e não
+   atinge links aninhados no futuro (ex.: um submenu). */
+/* Especificidade: "nav > a:link" (0,2,1) vence "a:link" (0,1,1),
+   por isso o texto do menu continua branco em todos os estados. */
+nav > a:link,
+nav > a:visited {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+/* :hover e :focus-visible (teclado) com o mesmo destaque */
+nav > a:hover,
+nav > a:focus-visible {
+    color: white;
+    background-color: var(--cor-escura);
+    text-decoration: none;
+}
+
+nav > a:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 2px;
+}
+
+nav > a:active {
+    color: white;
+    transform: scale(0.95);
+}
+
+
+/* ---------- TÍTULOS DAS SEÇÕES ----------
+   Combinador de AGRUPAMENTO (,): todos os h2 de seção compartilham
+   exatamente o mesmo visual; agrupar evita repetir 6 vezes a mesma regra. */
+.inicio h2,
+#flores h2,
+.precos h2,
+.sobre h2,
+.video h2,
+.contato h2 {
+    color: var(--cor-escura);
+    font-size: 1.875rem;
+    text-align: center;
+    margin-bottom: var(--espaco);
+}
+
+
+/* ---------- INÍCIO ---------- */
+.inicio {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Classe reutilizável: caixa de destaque */
+.destaque {
+    max-width: 480px;
+    margin: var(--espaco) auto 0;
+    padding: 1rem 1.5rem;
+    background-color: white;
+    border-left: 6px solid var(--cor-escura);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    font-weight: bold;
+}
+
+/* Classe reutilizável: botão.
+   Box model explícito: padding + border + margin (passo 6).
+   Seletor de classe + pseudo-classe (0,2,0) vence a:link (0,1,1). */
+.botao {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--cor-escura);
+    border-radius: 999px;
+    margin-top: var(--espaco);
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.botao:link,
+.botao:visited {
+    background-color: var(--cor-escura);
+    color: white;
+    text-decoration: none;
+}
+
+.botao:hover,
+.botao:focus-visible {
+    background-color: var(--cor-primaria);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+.botao:active {
+    transform: translateY(0);
+}
+
+
+/* ---------- CATÁLOGO COM GRID (Aula 07, passo 2) ---------- */
+#flores {
+    padding: 40px 8%;
+}
+
+/* auto-fit + minmax: o número de colunas se ajusta sozinho à largura,
+   sem media query. Cada coluna tem no mínimo 250px e divide o espaço
+   restante igualmente (1fr). */
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+
+/* ---------- CARD DA FLOR (classe reutilizável) ----------
+   Box model explícito: border + padding + margin.
+   Com border-box, a largura do card inclui a borda de 2px. */
+.flor {
+    background-color: white;
+    border: 2px solid var(--cor-suave);
+    border-radius: var(--raio);
+    padding: 0 0 var(--espaco);
+    margin: 0;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Pseudo-classes estruturais (Aula 07, passo 3): destacam a primeira
+   e a última flor do catálogo com uma borda de cor diferente. */
+.flor:first-child,
+.flor:last-child {
+    border-color: var(--cor-escura);
+}
+
+/* Animação de hover com transform em vez de margin/top/width/height:
+   transform é composto pela GPU e não recalcula o layout (reflow) do
+   grid; mudar width/height faria os vizinhos se reposicionarem. */
+.flor:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-forte);
+}
+
+/* Combinadores DESCENDENTES: estilizam só o conteúdo de dentro do card,
+   sem afetar h3, p ou img de outras partes da página. */
+.flor img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;          /* desafio extra: corta sem distorcer */
+}
+
+.flor h3 {
+    color: var(--cor-escura);
+    margin: 15px 10px 10px;
+}
+
+.flor p {
+    padding: 0 20px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.flor strong {
+    color: var(--cor-preco);
+    font-size: 1.25rem;
+}
+
+
+/* ---------- PREÇOS: TABELA E LISTA (Aula 06, passo 8) ---------- */
+.precos {
+    padding: 40px 8%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* wrapper permite rolagem horizontal da tabela em telas pequenas */
+.tabela-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;  /* une as bordas das células */
+    background-color: white;
+    box-shadow: var(--sombra);
+}
+
+caption {
+    caption-side: bottom;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--cor-texto);
+}
+
+th,
+td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--cor-suave);
+}
+
+th {
+    background-color: var(--cor-escura);
+    color: white;
+}
+
+/* Zebra: linhas pares com fundo suave (pseudo-classe estrutural) */
+tbody tr:nth-child(even) {
+    background-color: var(--cor-fundo);
+}
+
+/* Última coluna (preço) alinhada à direita */
+td:last-child,
+th:last-child {
+    text-align: right;
+}
+
+td:last-child {
+    color: var(--cor-preco);
+    font-weight: bold;
+}
+
+.cuidados {
+    margin-top: 2rem;
+}
+
+.cuidados h3 {
+    color: var(--cor-escura);
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+ul {
+    list-style-type: disc;           /* fallback */
+    list-style-type: "🌸  ";         /* marcador temático */
+    padding-left: 1.5rem;
+}
+
+li {
+    line-height: 1.6;
+    padding: 0.25rem 0;
+    border-bottom: 1px dashed var(--cor-suave);
+}
+
+/* o último item não precisa de linha separadora */
+li:last-child {
+    border-bottom: none;
+}
+
+
+/* ---------- SOBRE ---------- */
+.sobre {
+    background-color: var(--cor-suave);
+    text-align: center;
+    padding: 50px 20%;
+}
+
+.sobre p {
+    line-height: 1.6;
+}
+
+
+/* ---------- VÍDEO ---------- */
+.video {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.video p {
+    margin-bottom: 25px;
+}
+
+.video iframe {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    aspect-ratio: 16 / 9;     /* mantém a proporção do vídeo ao encolher */
+    border: 0;
+    border-radius: var(--raio);
+}
+
+
+/* ---------- CONTATO ---------- */
+.contato {
+    background-color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+.contato p {
+    margin: 8px;
+}
+
+
+/* ---------- RODAPÉ ---------- */
+footer {
+    background-color: var(--cor-escura);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

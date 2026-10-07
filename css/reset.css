@@ -1,0 +1,30 @@
+/* ==========================================================
+   RESET.CSS
+   Etapa 1: box-sizing global + remoção de margens/padding padrão
+   ========================================================== */
+
+/* border-box: width/height passam a incluir padding e border,
+   então nenhum elemento "estoura" a largura prevista. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove margens e paddings padrão do navegador.
+   Todo espaçamento passa a ser definido de forma explícita no style.css. */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Imagens nunca ultrapassam o contêiner */
+img {
+    display: block;
+    max-width: 100%;
+}

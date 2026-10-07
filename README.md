@@ -1,43 +1,72 @@
- Jardim Encantado — Catálogo de Flores
+# 🌷 Jardim Encantado — Catálogo de Flores
 
- Sobre o projeto
+## 📖 Sobre o projeto
 
-O Jardim Encantado é um projeto de catálogo virtual de flores desenvolvido utilizando HTML e CSS. O objetivo é apresentar diferentes tipos de flores de forma organizada, bonita e simples, permitindo que o visitante conheça as características, descrições e preços de cada espécie.
+O Jardim Encantado é um catálogo virtual de flores desenvolvido com HTML e CSS. Apresenta diferentes espécies de forma organizada e bonita, com imagem, descrição e preço de cada uma.
 
-O projeto foi desenvolvido como uma atividade de aprendizagem em desenvolvimento Front-End, utilizando conceitos básicos de estruturação de páginas HTML e estilização com CSS.
-O catálogo apresenta diferentes espécies de flores, como:
- Rosa Vermelha
- Girassol
- Tulipa
- Margarida
- Lírio
- Orquídea
+Projeto desenvolvido como atividade de aprendizagem em Desenvolvimento Front-End.
 
-Cada flor possui uma imagem, nome, descrição e preço, facilitando a visualização das informações pelo usuário.
+## 🌸 Flores disponíveis
 
-Objetivo
+- 🌹 Rosa Vermelha
+- 🌻 Girassol
+- 🌷 Tulipa
+- 🌼 Margarida
+- 🤍 Lírio
+- 💜 Orquídea
 
-O objetivo do projeto é criar uma página web simples e intuitiva para apresentar produtos de uma floricultura, praticando conceitos fundamentais de desenvolvimento web.
+## 💻 Tecnologias utilizadas
 
-Tecnologias utilizadas
+- **HTML5** — estrutura semântica da página
+- **CSS3** — variáveis, box model, Flexbox, Grid e pseudo-classes
+- **YouTube** — vídeo de arranjos florais incorporado com `<iframe>`
 
-HTML: estrutura da página;
-CSS: aparência, organização e responsividade;
-YouTube: vídeo relacionado a flores e arranjos florais.
+## 📂 Estrutura do projeto
 
- index.html
+```
+projeto-integrador-frontend-EduardaPaiva/
+│
+├── index.html
+├── README.md
+└── css/
+    ├── reset.css
+    └── style.css
+```
 
-Contém toda a estrutura da página, incluindo o cabeçalho, menu, catálogo de flores, informações sobre a floricultura, vídeo e contato.
+- **index.html** — cabeçalho, menu, catálogo, tabela de preços, lista de cuidados, sobre, vídeo e contato.
+- **css/reset.css** — `box-sizing: border-box` global e remoção de margens/padding padrão.
+- **css/style.css** — aparência do site.
 
-estilo.css
+## 🎨 Conceitos de CSS aplicados
 
-Responsável pela aparência do site, incluindo cores, fontes, espaçamentos, imagens, cards das flores, efeitos ao passar o mouse e organização do catálogo.
+### Aula 06 — Estilização base
 
+- Variáveis CSS no `:root` (cores, espaçamento, raio de borda e sombras), reutilizadas em várias propriedades
+- Seletores de classe reutilizáveis: `.flor`, `.destaque`, `.botao`
+- Seletor de ID: `#titulo-principal`
+- Combinadores: descendente (`.flor h3`), filho direto (`nav > a`) e agrupamento (títulos de seção), com comentário justificando cada escolha
+- Box model explícito (padding, border e margin) em `.flor` e `.botao`
+- Estados de link na ordem LoVe/HAte: `a:link`, `a:visited`, `a:hover`, `a:active`
+- Tabela com `border-collapse` e lista com `list-style-type` temático
+- `font-size` sempre em `rem`, para respeitar a preferência de fonte do usuário
+- `object-fit: cover` nas imagens das flores
 
- Vídeo
+### Aula 07 — Flexbox, Grid e pseudo-classes
 
-O site também apresenta um vídeo relacionado a arranjos florais, incorporado diretamente do YouTube através da tag `<iframe>`.
+- Barra de navegação com `display: flex`, com `:hover` e `:focus-visible` nos links
+- Catálogo com `display: grid` e `repeat(auto-fit, minmax(250px, 1fr))`, responsivo sem media query
+- Pseudo-classes estruturais: `:first-child`, `:last-child` e `:nth-child(even)`
+- Animação de hover com `transform` (não `width`/`height`), evitando reflow
 
- Projeto acadêmico
+## 🌱 Possíveis melhorias futuras
 
-Projeto desenvolvido para fins educacionais, com o objetivo de praticar conhecimentos básicos de **HTML e CSS** no desenvolvimento de uma página web.
+- Botão de compra e carrinho de compras
+- Mais espécies de flores e uma página individual para cada uma
+- Formulário de contato
+- JavaScript para interatividade, busca e filtros
+
+## 👩‍💻 Projeto acadêmico
+
+Desenvolvido para fins educacionais.
+
+**Jardim Encantado 🌷 — Flores que transformam momentos em memórias**

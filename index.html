@@ -7,19 +7,21 @@
 
     <title>Jardim Encantado - Floricultura</title>
 
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
     <!-- CABEÇALHO -->
     <header>
-        <h1>🌷 Jardim Encantado 🌷</h1>
+        <h1 id="titulo-principal">🌷 Jardim Encantado 🌷</h1>
 
         <p>Flores que transformam momentos em memórias.</p>
 
         <nav>
             <a href="#flores">Flores</a>
+            <a href="#precos">Preços</a>
             <a href="#sobre">Sobre nós</a>
             <a href="#video">Vídeo</a>
             <a href="#contato">Contato</a>
@@ -36,6 +38,10 @@
             Encontre flores lindas para presentear quem você ama
             ou deixar seu ambiente ainda mais especial.
         </p>
+
+        <p class="destaque">💜 Destaque: Orquídea por R$ 35,00</p>
+
+        <a class="botao" href="#flores">Ver catálogo</a>
 
     </section>
 
@@ -167,6 +173,70 @@
     </section>
 
 
+    <!-- PREÇOS (TABELA) E CUIDADOS (LISTA) -->
+    <section id="precos" class="precos">
+
+        <h2>Tabela de Preços</h2>
+
+        <div class="tabela-wrapper">
+            <table>
+                <caption>Preços por unidade.</caption>
+                <thead>
+                    <tr>
+                        <th>Flor</th>
+                        <th>Simboliza</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🌹 Rosa Vermelha</td>
+                        <td>Amor e paixão</td>
+                        <td>R$ 15,00</td>
+                    </tr>
+                    <tr>
+                        <td>🌻 Girassol</td>
+                        <td>Alegria</td>
+                        <td>R$ 12,00</td>
+                    </tr>
+                    <tr>
+                        <td>🌷 Tulipa</td>
+                        <td>Elegância</td>
+                        <td>R$ 18,00</td>
+                    </tr>
+                    <tr>
+                        <td>🌼 Margarida</td>
+                        <td>Simplicidade</td>
+                        <td>R$ 10,00</td>
+                    </tr>
+                    <tr>
+                        <td>🤍 Lírio</td>
+                        <td>Pureza</td>
+                        <td>R$ 20,00</td>
+                    </tr>
+                    <tr>
+                        <td>💜 Orquídea</td>
+                        <td>Sofisticação</td>
+                        <td>R$ 35,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="cuidados">
+            <h3>Cuidados para suas flores durarem mais</h3>
+
+            <ul>
+                <li>Troque a água do vaso a cada dois dias.</li>
+                <li>Corte um pouco do talo na diagonal ao receber as flores.</li>
+                <li>Evite sol direto e lugares muito quentes.</li>
+                <li>Retire folhas que fiquem submersas na água.</li>
+            </ul>
+        </div>
+
+    </section>
+
+
     <!-- SOBRE -->
     <section id="sobre" class="sobre">
 
@@ -209,9 +279,11 @@
 
         <p>📱 WhatsApp: (83) 99999-9999</p>
 
-        <p>📧 Email: contato@jardimencantado.com</p>
+        <p>📧 Email: <a href="mailto:contato@jardimencantado.com">contato@jardimencantado.com</a></p>
 
         <p>📍 João Pessoa - PB</p>
+
+        <a class="botao" href="https://wa.me/5583999999999">Chamar no WhatsApp</a>
 
     </section>
 
